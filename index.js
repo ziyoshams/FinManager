@@ -2,64 +2,30 @@
 
 import { AppRegistry } from 'react-native';
 import { name as appName } from './app.json';
-import { Navigation } from 'react-native-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
-import App from './src/App';
+import Welcome from './src/components/Welcome';
 import Income from './src/components/Income';
 import Expenses from './src/components/Expenses';
-
-Navigation.registerComponent('WelcomeWindow', () => App);
-Navigation.registerComponent('IncomeWindow', () => Income);
-Navigation.registerComponent('ExpensesWindow', () => Expenses);
+import SignUp from './src/components/SignUp';
 
 
-Navigation.events().registerAppLaunchedListener(() => {
-  Navigation.setRoot({
-    root: {
-      stack: {
-        options: {
-          topBar: {
-            visible: true
-          }
-        },
-        children: [
-          {
-            sideMenu: {
-              left: {
-                component: {
-                  name: 'WelcomeWindow',
-                  passProps: {
-                    text: 'This is a left side menu screen'
-                  }
-                }
-              },
-              center: {
-                component: {
-                  name: 'IncomeWindow'
-                }
-              },
-              right: {
-                component: {
-                  name: 'ExpensesWindow',
-                  passProps: {
-                    text: 'This is a right side menu screen'
-                  }
-                }
-              }
-            }
-          },
-          {
-            component: {
-              name: 'WelcomeWindow',
-              passProps: {
-                text: 'This is tab 2'
-              }
-            }
-          }
-        ]
-      }
+const StackNavigation = createStackNavigator(
+  {
+    Login: {
+      screen: Welcome
+    },
+    SignUp: {
+      screen: SignUp
     }
-  });
-});
+  },
+  {
+    initialRouteName: 'Login',
+    headerMode: 'none',
+  }
+)
 
-AppRegistry.registerComponent(appName, () => App);
+
+const Container = createAppContainer(StackNavigation);
+
+AppRegistry.registerComponent(appName, () => Container);

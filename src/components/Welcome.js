@@ -1,56 +1,80 @@
 import React from 'react';
 import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-
 export default class Welcome extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   handleSignUp = () => {
-    alert('helo');
-  }
+    this.props.navigation.navigate('SignUp')
+  };
 
   handleTerms = () => {
-    alert('Terms and services')
-  }
+    alert('Terms and services');
+  };
+
+  handleContinue = () => {
+    alert('Continuing');
+  };
 
   render() {
     return (
-      <View style={styles.welcome}>
-        <Image style={styles.backgroundImage} source={require('../assets/Welcome-view/Welcome.png')} />
-        <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
-          <Image source={require('../assets/Welcome-view/button-sign-up.png')} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.handleTerms} style={styles.terms}>
-          <Text style={styles.termsText}>Terms of Services</Text>
-        </TouchableOpacity>
+      <View style={styles.wrapper}>
+        <Image
+          style={styles.backgroundImage}
+          source={require('../assets/Welcome-view/Welcome.png')}
+        />
+        <View style={{ flex: 1 }} />
+        <View style={{ flex: 1 }}>
+          <TouchableOpacity style={styles.signUpBtn} onPress={this.handleSignUp}>
+            <Image source={require('../assets/Welcome-view/button-sign-up.png')} />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.continueBtn} onPress={this.handleContinue}>
+            <Text style={styles.buttonText}>Continue</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.handleTerms} style={styles.termsBtn}>
+            <Text style={styles.termsText}>Terms of Services</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    )
+    );
   }
-
 }
 
 const styles = StyleSheet.create({
-  welcome: {
+  wrapper: {
     flex: 1,
     backgroundColor: '#33001B'
   },
+  buttonText: {
+    fontSize: 18,
+    color: '#3867d6',
+    fontWeight: '600'
+  },
   backgroundImage: {
-    flex: 1
-  },
-  button: {
     position: 'absolute',
-    alignSelf: 'center',
-    bottom: 220,
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
   },
-  terms: {
+  signUpBtn: {
+    marginTop: 80,
+    flex: 1,
+    alignSelf: 'center'
+  },
+  continueBtn: {
+    flex: 3,
+    alignSelf: 'center'
+  },
+  termsBtn: {
     position: 'absolute',
     bottom: 30,
-    alignSelf: 'center',
+    alignSelf: 'center'
   },
   termsText: {
     color: '#B0B0B0',
     fontSize: 12
   }
-})
+});
