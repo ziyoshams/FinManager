@@ -17,6 +17,12 @@ const StackNavigation = createStackNavigator(
     },
     SignUp: {
       screen: SignUp
+    },
+    Income: {
+      screen: Income
+    },
+    Expenses: {
+      screen: Expenses
     }
   },
   {

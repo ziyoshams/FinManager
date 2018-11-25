@@ -4,4 +4,5 @@
 target 'FinManager' do
   pod 'Firebase/Auth'
   pod 'Firebase/Core', '~> 5.11.0'
+  pod 'Firebase/Firestore', '~> 5.11.0'
 end
