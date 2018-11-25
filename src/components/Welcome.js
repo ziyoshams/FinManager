@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Image, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+
+const viewport = Dimensions.get('window');
 
 export default class Welcome extends React.Component {
   constructor(props) {
@@ -45,7 +47,7 @@ export default class Welcome extends React.Component {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: '#33001B'
+    backgroundColor: 'red'
   },
   buttonText: {
     fontSize: 18,
@@ -54,10 +56,8 @@ const styles = StyleSheet.create({
   },
   backgroundImage: {
     position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0
+    height: viewport.height,
+    width: viewport.width
   },
   signUpBtn: {
     marginTop: 80,
