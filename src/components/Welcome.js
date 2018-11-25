@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Image, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import firebase from 'react-native-firebase';
 
 const viewport = Dimensions.get('window');
 
@@ -9,7 +10,7 @@ export default class Welcome extends React.Component {
   }
 
   handleSignUp = () => {
-    this.props.navigation.navigate('SignUp')
+    this.props.navigation.navigate('SignUp');
   };
 
   handleTerms = () => {
