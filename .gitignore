@@ -8,6 +8,7 @@ build/
 ios/Pods
 Pods
 GoogleService-Info.plist
+google-services.json
 *.pbxuser
 !default.pbxuser
 *.mode1v3

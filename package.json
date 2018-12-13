@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "clean-xcode": "rm -rf ~/Library/Developer/Xcode/DerivedData",
-    "initialize": "npm i && cd ios/ && pod install && cd ../ && npm run clean-xcode",
+    "initialize": "npm run clean-xcode && npm i && cd ios/ && pod install && cd ../",
     "test": "jest"
   },
   "dependencies": {
