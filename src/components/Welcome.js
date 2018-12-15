@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Image, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
-import firebase from 'react-native-firebase';
 
 const viewport = Dimensions.get('window');
 
@@ -24,7 +23,6 @@ export default class Welcome extends React.Component {
 
   handleContinue = async () => {
     try {
-      const user = await firebase.auth().signInAnonymously();
       // set user in redux store and maybe AsyncStorage
       this.props.navigation.navigate('Expenses')
     } catch (error) {

@@ -6,8 +6,7 @@ target 'FinManager' do
   # use_frameworks!
 
   # Pods for FinManager
-  pod 'Firebase/Core', '~> 5.11.0'
-  pod 'Firebase/Auth', '~> 5.11.0'
+
   
 end
 
