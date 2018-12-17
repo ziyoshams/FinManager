@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { store } from './redux/index.js';
-import { Navigation } from './Navigation';
+// import { Navigation } from './Navigation';
 import { Provider } from 'react-redux';
 
 export default class App extends PureComponent {
@@ -11,7 +11,7 @@ export default class App extends PureComponent {
   render() {
     return (
       <Provider store={store}>
-        <Navigation />
+        {/* <Navigation /> */}
       </Provider>
     );
   }
